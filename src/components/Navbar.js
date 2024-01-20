@@ -85,7 +85,8 @@ function Navbar() {
 
   return (
     <div className="">
-      <nav className="w-screen ">
+      {/* <nav className="w-screen bg-gray-400 backdrop-filter backdrop-blur-sm bg-opacity-10 fixed z-10"> */}
+      <nav className="w-screen">
         <ul className="flex items-end justify-between py-3 bg-transparent text-white pr-5">
           <li className="flex items-end ml-5 pb-2">
             <Link to="/">
