@@ -102,15 +102,24 @@ function Navbar() {
               </div>
             </Link>
           </li>
-          <li className="w-2/5">
+          <li className="w-2/4">
             <ul className="lg:flex justify-between font-bold mr-10 text-lg">
               {location.pathname === "/" ? (
                 <li className="border-b-2 hover:pb-0 p-2">
-                  <Link to="/">Roadmap</Link>
+                  <Link to="/">Home</Link>
                 </li>
               ) : (
                 <li className="hover:border-b-2 hover:pb-0 p-2">
-                  <Link to="/">Roadmap</Link>
+                  <Link to="/">Home</Link>
+                </li>
+              )}
+              {location.pathname === "/roadmap" ? (
+                <li className="border-b-2 hover:pb-0 p-2">
+                  <Link to="/roadmap">Roadmap</Link>
+                </li>
+              ) : (
+                <li className="hover:border-b-2 hover:pb-0 p-2">
+                  <Link to="/roadmap">Roadmap</Link>
                 </li>
               )}
               {location.pathname === "/marketplace" ? (

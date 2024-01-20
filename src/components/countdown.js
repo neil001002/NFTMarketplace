@@ -54,7 +54,7 @@ function Countdown() {
         <h2
           style={{ fontSize: "4rem", color: "white", textAlign: "center" }}
         >
-          Launching soon ...
+          Counter until the big event
         </h2>
         <div id="timer">
           {" "}

@@ -5,13 +5,15 @@ import SellNFT from "./components/SellNFT";
 import NFTPage from "./components/NFTpage";
 import { Routes, Route } from "react-router-dom";
 import Roadmap from "./components/Roadmap";
+import Home from "./components/Home";
 
 function App() {
   return (
     <div className="container">
       <Routes>
-        <Route path="/" element={<Roadmap />} />
-        <Route path="/Marketplace" element={<Marketplace />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/roadmap" element={<Roadmap />} />
+        <Route path="/marketplace" element={<Marketplace />} />
         <Route path="/nftPage" element={<NFTPage />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/sellNFT" element={<SellNFT />} />
