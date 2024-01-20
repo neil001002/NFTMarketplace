@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
+import "../assets/styles/Navbar.css";
 
 function Navbar() {
   const [connected, toggleConnect] = useState(false);
@@ -69,9 +70,22 @@ function Navbar() {
     });
   });
 
+  window.addEventListener("scroll", () => {
+    const indicatorBar = document.querySelector(".scroll-indicator-bar");
+
+    const pageScroll =
+      document.body.scrollTop || document.documentElement.scrollTop;
+    const height =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+    const scrollValue = (pageScroll / height) * 100;
+
+    indicatorBar.style.width = scrollValue + "%";
+  });
+
   return (
     <div className="">
-      <nav className="w-screen">
+      <nav className="w-screen ">
         <ul className="flex items-end justify-between py-3 bg-transparent text-white pr-5">
           <li className="flex items-end ml-5 pb-2">
             <Link to="/">
@@ -87,15 +101,24 @@ function Navbar() {
               </div>
             </Link>
           </li>
-          <li className="w-2/6">
+          <li className="w-2/5">
             <ul className="lg:flex justify-between font-bold mr-10 text-lg">
               {location.pathname === "/" ? (
                 <li className="border-b-2 hover:pb-0 p-2">
-                  <Link to="/">Marketplace</Link>
+                  <Link to="/">Roadmap</Link>
                 </li>
               ) : (
                 <li className="hover:border-b-2 hover:pb-0 p-2">
-                  <Link to="/">Marketplace</Link>
+                  <Link to="/">Roadmap</Link>
+                </li>
+              )}
+              {location.pathname === "/marketplace" ? (
+                <li className="border-b-2 hover:pb-0 p-2">
+                  <Link to="/marketplace">Marketplace</Link>
+                </li>
+              ) : (
+                <li className="hover:border-b-2 hover:pb-0 p-2">
+                  <Link to="/marketplace">Marketplace</Link>
                 </li>
               )}
               {location.pathname === "/sellNFT" ? (
@@ -127,6 +150,9 @@ function Navbar() {
             </ul>
           </li>
         </ul>
+        <div class="scroll-indicator-container">
+          <div class="scroll-indicator-bar"></div>
+        </div>
       </nav>
       <div className="text-white text-bold text-right mr-10 text-sm">
         {currAddress !== "0x"

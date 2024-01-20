@@ -2,10 +2,13 @@ import Navbar from "./Navbar";
 import NFTTile from "./NFTTile";
 import MarketplaceJSON from "../Marketplace.json";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GetIpfsUrlFromPinata } from "../utils";
+import Loader2 from "./Loader";
 
 export default function Marketplace() {
+  const [loading, setLoading] = useState(false);
+
   const sampleData = [
     {
       name: "NFT#1",
@@ -83,6 +86,17 @@ export default function Marketplace() {
   }
 
   if (!dataFetched) getAllNFTs();
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+
+  if (loading) {
+    return <Loader2 />;
+  }
 
   return (
     <div>
